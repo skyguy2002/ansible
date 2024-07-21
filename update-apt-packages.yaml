@@ -7,3 +7,8 @@
       apt:
         upgrade: yes
         update_cache: yes
+    - name: check if system reboot ist required
+      become: true
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required
